@@ -5,35 +5,37 @@ class ExperienciasLaboralesController < ApplicationController
 
   def index
     @experiencias_laborales = ExperienciaLaboral.all
-    respond_with(@experiencias_laborales)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @experiencias_laborales }
+      end
   end
 
   def show
-    respond_with(@experiencia_laboral)
+    experiencia_laboral = ExperienciaLaboral.find(params[:id])
   end
 
   def new
     @experiencia_laboral = ExperienciaLaboral.new
-    respond_with(@experiencia_laboral)
   end
 
   def edit
+    @experiencia_laboral = ExperienciaLaboral.find(params[:id])
   end
 
   def create
     @experiencia_laboral = ExperienciaLaboral.new(experiencia_laboral_params)
-    @experiencia_laboral.save
-    respond_with(@experiencia_laboral)
+    render :action => :new unless @experiencia_laboral.save
   end
 
   def update
-    @experiencia_laboral.update(experiencia_laboral_params)
-    respond_with(@experiencia_laboral)
+    @experiencia_laboral = ExperienciaLaboral.find(params[:id])
+    render :action => :edit unless @experiencia_laboral.update_attributes(experiencia_laboral_params)
   end
-
+  
   def destroy
-    @experiencia_laboral.destroy
-    respond_with(@experiencia_laboral)
+      @experiencia_laboral = ExperienciaLaboral.find(params[:id])
+      @experiencia_laboral.destroy
   end
 
   private

@@ -5,35 +5,36 @@ class ProfesionesUsuariosController < ApplicationController
 
   def index
     @profesiones_usuarios = ProfesionesUsuario.all
-    respond_with(@profesiones_usuarios)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @profesiones_usuarios }
+      end
   end
-
   def show
-    respond_with(@profesiones_usuario)
+    @profesiones_usuario = ProfesionesUsuario.find(params[:id])
   end
 
   def new
     @profesiones_usuario = ProfesionesUsuario.new
-    respond_with(@profesiones_usuario)
   end
 
   def edit
+    @profesiones_usuario = ProfesionesUsuario.find(params[:id])
   end
 
   def create
     @profesiones_usuario = ProfesionesUsuario.new(profesiones_usuario_params)
-    @profesiones_usuario.save
-    respond_with(@profesiones_usuario)
+    render :action => :new unless @profesiones_usuario.save
   end
 
   def update
-    @profesiones_usuario.update(profesiones_usuario_params)
-    respond_with(@profesiones_usuario)
+    @profesiones_usuario = ProfesionesUsuario.find(params[:id])
+    render :action => :edit unless @profesiones_usuario.update_attributes(profesiones_usuario_params)
   end
 
   def destroy
+    @profesiones_usuario = ProfesionesUsuario.find(params[:id])
     @profesiones_usuario.destroy
-    respond_with(@profesiones_usuario)
   end
 
   private

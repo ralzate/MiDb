@@ -5,35 +5,38 @@ class InformacionesAcademicasController < ApplicationController
 
   def index
     @informaciones_academicas = InformacionAcademica.all
-    respond_with(@informaciones_academicas)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @informaciones_academicas }
+      end
   end
 
   def show
-    respond_with(@informacion_academica)
+    @informacion_academica = InformacionAcademica.find(params[:id])
   end
 
   def new
     @informacion_academica = InformacionAcademica.new
-    respond_with(@informacion_academica)
   end
 
   def edit
+    @informacion_academica = InformacionAcademica.find(params[:id])
   end
 
   def create
     @informacion_academica = InformacionAcademica.new(informacion_academica_params)
-    @informacion_academica.save
-    respond_with(@informacion_academica)
+    render :action => :new unless @informacion_academica.save
   end
 
   def update
-    @informacion_academica.update(informacion_academica_params)
-    respond_with(@informacion_academica)
+    @informacion_academica = InformacionAcademica.find(params[:id])
+    render :action => :edit unless @informacion_academica.update_attributes(informacion_academica_params)
   end
+  
 
   def destroy
-    @informacion_academica.destroy
-    respond_with(@informacion_academica)
+      @informacion_academica = InformacionAcademica.find(params[:id])
+      @informacion_academica.destroy
   end
 
   private

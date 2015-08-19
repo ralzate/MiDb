@@ -10,12 +10,12 @@ class ProfesionesController < ApplicationController
       format.json { render json: @profesiones }
       end
   end
+  
   def show
     @profesion = Profesion.find(params[:id])
   end
 
   def new
-
     @profesion = Profesion.new
   end
 

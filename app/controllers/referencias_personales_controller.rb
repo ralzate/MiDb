@@ -5,37 +5,40 @@ class ReferenciasPersonalesController < ApplicationController
 
   def index
     @referencias_personales = ReferenciasPersonale.all
-    respond_with(@referencias_personales)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @referencias_personales }
+      end
   end
 
   def show
-    respond_with(@referencias_personale)
+    @referencias_personale = ReferenciasPersonale.find(params[:id])
   end
 
   def new
     @referencias_personale = ReferenciasPersonale.new
-    respond_with(@referencias_personale)
   end
 
   def edit
+    @referencias_personale = ReferenciasPersonale.find(params[:id])
   end
 
   def create
     @referencias_personale = ReferenciasPersonale.new(referencias_personale_params)
-    @referencias_personale.save
-    respond_with(@referencias_personale)
+    render :action => :new unless @referencias_personale.save
   end
 
   def update
-    @referencias_personale.update(referencias_personale_params)
-    respond_with(@referencias_personale)
+    @referencias_personale = ReferenciasPersonale.find(params[:id])
+    render :action => :edit unless @referencias_personale.update_attributes(referencias_personale_params)
   end
+
 
   def destroy
-    @referencias_personale.destroy
-    respond_with(@referencias_personale)
+      @referencias_personale = ReferenciasPersonale.find(params[:id])
+      @referencias_personale.destroy
   end
-
+  
   private
     def set_referencias_personale
       @referencias_personale = ReferenciasPersonale.find(params[:id])

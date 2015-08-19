@@ -1,42 +1,25 @@
-<%- model_class = ReferenciasPersonale -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:nombre) %></th>
-      <th><%= model_class.human_attribute_name(:telefono) %></th>
-      <th><%= model_class.human_attribute_name(:profesion) %></th>
-      <th><%= model_class.human_attribute_name(:usuario_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @referencias_personales.each do |referencias_personale| %>
-      <tr>
-        <td><%= link_to referencias_personale.id, referencias_personale_path(referencias_personale) %></td>
-        <td><%= referencias_personale.nombre %></td>
-        <td><%= referencias_personale.telefono %></td>
-        <td><%= referencias_personale.profesion %></td>
-        <td><%= referencias_personale.usuario_id %></td>
-        <td><%=l referencias_personale.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_referencias_personale_path(referencias_personale), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      referencias_personale_path(referencias_personale),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_referencias_personale_path,
-            :class => 'btn btn-primary' %>
+<%- model_class = ReferenciasPersonale -%>
+
+   
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>usuario_id</th>
+          <th>profesion_id</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+       <%= render @referencias_personales %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td><%= link_to image_tag('nuevo.png',),  new_referencias_personale_path,  :remote => true, :rel => "tooltip", :title => "Ingresar Sugerencias", :class => "btn btn-link " %></td>
+        </tr>
+      </tfoot>
+
+    </table>
+  </div>
+    </table>

@@ -5,35 +5,37 @@ class EstudiosComplementariosController < ApplicationController
 
   def index
     @estudios_complementarios = EstudiosComplementario.all
-    respond_with(@estudios_complementarios)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @estudios_complementarios }
+      end
   end
 
   def show
-    respond_with(@estudios_complementario)
+    estudios_complementario = EstudiosComplementario.find(params[:id])
   end
 
   def new
     @estudios_complementario = EstudiosComplementario.new
-    respond_with(@estudios_complementario)
   end
 
   def edit
+    @estudios_complementario = EstudiosComplementario.find(params[:id])
   end
 
   def create
     @estudios_complementario = EstudiosComplementario.new(estudios_complementario_params)
-    @estudios_complementario.save
-    respond_with(@estudios_complementario)
+    render :action => :new unless @estudios_complementario.save
   end
 
   def update
-    @estudios_complementario.update(estudios_complementario_params)
-    respond_with(@estudios_complementario)
+    @estudios_complementario = EstudiosComplementario.find(params[:id])
+    render :action => :edit unless @estudios_complementario.update_attributes(estudios_complementario_params)
   end
 
   def destroy
-    @estudios_complementario.destroy
-    respond_with(@estudios_complementario)
+      @estudios_complementario = EstudiosComplementario.find(params[:id])
+      @estudios_complementario.destroy
   end
 
   private
