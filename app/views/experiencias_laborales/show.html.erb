@@ -1,0 +1,29 @@
+<%- model_class = ExperienciaLaboral -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:empresa) %>:</strong></dt>
+  <dd><%= @experiencia_laboral.empresa %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cargo) %>:</strong></dt>
+  <dd><%= @experiencia_laboral.cargo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:telefono) %>:</strong></dt>
+  <dd><%= @experiencia_laboral.telefono %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_incio) %>:</strong></dt>
+  <dd><%= @experiencia_laboral.fecha_incio %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:fecha_terminacion) %>:</strong></dt>
+  <dd><%= @experiencia_laboral.fecha_terminacion %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:usuario_id) %>:</strong></dt>
+  <dd><%= @experiencia_laboral.usuario_id %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              experiencias_laborales_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_experiencia_laboral_path(@experiencia_laboral), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              experiencia_laboral_path(@experiencia_laboral),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

@@ -1,0 +1,10 @@
+<%= simple_form_for(@profesion, :html => { :class => 'form-horizontal' }, :remote => true) do |f| %>
+    <%= f.error_notification %>
+      <p></p><h4>Sugerencias</h4></p>
+      <p><%= f.input :nombre, :label => "Nombre",  :required => true %></p>
+      <p><%= f.input :descripcion, :label => "Apellido",  :required => true %></p>
+    <div class="form-actions">
+      <%= f.submit "guardar", :class => 'btn btn-primary' %>
+      <a href="#" class="btn" onclick="$.lazybox.close()">Cerrar</a>
+    </div>
+<% end %>

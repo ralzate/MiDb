@@ -1,0 +1,62 @@
+<%= form_for @informacion_academica, :html => { :class => "form-horizontal informacion_academica" } do |f| %>
+
+  <% if @informacion_academica.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@informacion_academica.errors.count, "error") %> prohibited this informacion_academica from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @informacion_academica.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :tipo_de_dato, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :tipo_de_dato, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:tipo_de_dato) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :nombre, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :nombre, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nombre) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :fecha_terminacion, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :fecha_terminacion, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:fecha_terminacion) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :titulo_obtenido, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :titulo_obtenido, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:titulo_obtenido) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :usuario_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :usuario_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:usuario_id) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                informaciones_academicas_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>

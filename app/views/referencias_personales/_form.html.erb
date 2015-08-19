@@ -1,0 +1,55 @@
+<%= form_for @referencias_personale, :html => { :class => "form-horizontal referencias_personale" } do |f| %>
+
+  <% if @referencias_personale.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@referencias_personale.errors.count, "error") %> prohibited this referencias_personale from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @referencias_personale.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :nombre, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :nombre, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:nombre) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :telefono, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :telefono, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:telefono) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :profesion, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :profesion, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:profesion) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :usuario_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :usuario_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:usuario_id) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                referencias_personales_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>
