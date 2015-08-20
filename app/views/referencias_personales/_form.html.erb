@@ -24,12 +24,7 @@
     <div class="col-md-6">
       <%= f.input :profesion, :label => false,  :required => true %>
     </div>
-    <div class="col-md-4">
-      Usuario:
-    </div>
-    <div class="col-md-6">
-      <%= f.input :usuario_id, :label => false,  :required => true  %>
-    </div>
+        <%= f.hidden_field :usuario_id, :value => current_user.id %>
   </div>
 </div>
 <div class="modal-footer">

@@ -10,4 +10,7 @@
 #
 
 class Profesion < ActiveRecord::Base
+	def self.search(search)
+		where("nombre like '%#{search}%' or descripcion like '%#{search}%'")
+	end
 end

@@ -13,4 +13,8 @@
 
 class ReferenciasPersonale < ActiveRecord::Base
   belongs_to :usuario
+  	def self.search(search)
+		where("nombre like '%#{search}%' or telefono like '%#{search}%' 
+	    or profesion like '%#{search}%'")
+	end
 end

@@ -4,11 +4,11 @@ class EstudiosComplementariosController < ApplicationController
   respond_to :html
 
   def index
-    @estudios_complementarios = EstudiosComplementario.all
+    @estudios_complementarios = EstudiosComplementario.search(params[:search]).page(params[:page]).per_page(5).where usuario_id: current_user.id    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @estudios_complementarios }
-      end
+    end
   end
 
   def show

@@ -14,4 +14,8 @@
 
 class InformacionAcademica < ActiveRecord::Base
   belongs_to :usuario
+    def self.search(search)
+		where("tipo_de_dato like '%#{search}%' or nombre like '%#{search}%' 
+		or titulo_obtenido like '%#{search}%'")
+	end
 end

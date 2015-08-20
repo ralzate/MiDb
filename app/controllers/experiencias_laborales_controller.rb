@@ -4,11 +4,11 @@ class ExperienciasLaboralesController < ApplicationController
   respond_to :html
 
   def index
-    @experiencias_laborales = ExperienciaLaboral.all
-    respond_to do |format|
+    @experiencias_laborales = ExperienciaLaboral.search(params[:search]).page(params[:page]).per_page(3).where usuario_id: current_user.id    
+      respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @experiencias_laborales }
-      end
+      format.xml { render :xml => @experiencias_laborales }
+    end
   end
 
   def show

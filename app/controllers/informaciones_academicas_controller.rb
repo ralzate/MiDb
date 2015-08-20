@@ -4,7 +4,7 @@ class InformacionesAcademicasController < ApplicationController
   respond_to :html
 
   def index
-    @informaciones_academicas = InformacionAcademica.all
+    @informaciones_academicas = InformacionAcademica.search(params[:search]).page(params[:page]).per_page(5).where usuario_id: current_user.id    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @informaciones_academicas }

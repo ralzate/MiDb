@@ -26,7 +26,7 @@ gem 'remotipart'
 # Seed Dump is a Rails 4 plugin that adds a rake task named db:seed:dump
 gem 'seed_dump'
 # will_paginate is a pagination library that integrates with Ruby on Rails, Sinatra, Merb, DataMapper and Sequel.
-gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

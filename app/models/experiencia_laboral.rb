@@ -14,5 +14,9 @@
 #
 
 class ExperienciaLaboral < ActiveRecord::Base
-  belongs_to :usuario
+  	belongs_to :usuario
+    def self.search(search)
+		where("empresa like '%#{search}%' or cargo like '%#{search}%' 
+		or telefono like '%#{search}%'")
+	end
 end
