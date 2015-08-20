@@ -13,13 +13,20 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby
-
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+# Lazybox is a jQuery-based, lightbox that can display entire remote pages, images and confirmation dialogs
 gem 'lazybox', '0.2.3'
+# Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms
 gem 'simple_form'
+# Add a comment summarizing the current schema to the top or bottom of each of your…
+gem 'annotate', github: 'ctran/annotate_models'
+# Remotipart is a Ruby on Rails gem enabling AJAX file uploads with jQuery
 gem 'remotipart'
-
+# Seed Dump is a Rails 4 plugin that adds a rake task named db:seed:dump
+gem 'seed_dump'
+# will_paginate is a pagination library that integrates with Ruby on Rails, Sinatra, Merb, DataMapper and Sequel.
+gem 'will_paginate'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

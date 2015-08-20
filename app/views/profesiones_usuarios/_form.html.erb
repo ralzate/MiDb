@@ -1,10 +1,25 @@
-<%= simple_form_for(@profesiones_usuario, :html => { :class => 'form-horizontal' }, :remote => true) do |f| %>
-    <%= f.error_notification %>
-      <p></p><h4>Sugerencias</h4></p>
-      <p><%= f.input :usuario_id, :label => "Nombre",  :required => true %></p>
-      <p><%= f.input :profesion_id, :label => "Apellido",  :required => true %></p>
-    <div class="form-actions">
-      <%= f.submit "guardar", :class => 'btn btn-primary' %>
-      <a href="#" class="btn" onclick="$.lazybox.close()">Cerrar</a>
-    </div>
+<%= simple_form_for(@profesiones_usuario, :html => { :multipart => true, :remote => true }) do |f| %>
+<div class="user">
+	<div class="modal-header">
+		<h4 class="modal-title"><h3>Datos Profesión Usuario</h3></h4>
+	</div><br>
+	<div class="row">
+		<div class="col-md-4">
+			Usuario:
+		</div>
+		<div class="col-md-6">
+			<%= f.input :usuario_id, :label => false,  :required => true %>
+		</div>
+		<div class="col-md-4">
+			Profesion:
+		</div>
+		<div class="col-md-6">
+			<%= f.input :profesion_id, :label => false,  :required => true  %>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<%= f.submit "Guardar", :class => 'btn btn-primary' %>
+	<a href="#" class="btn btn-default" onclick="$.lazybox.close()">Cerrar</a>
+</div>
 <% end %>

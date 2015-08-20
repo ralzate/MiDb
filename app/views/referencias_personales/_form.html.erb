@@ -1,13 +1,39 @@
-<%= simple_form_for(@referencias_personale, :html => { :class => 'form-horizontal' }, :remote => true) do |f| %>
-    <%= f.error_notification %>
-      <p></p><h4>Sugerencias</h4></p>
-      <p><%= f.input :nombre, :label => "Nombre",  :required => true %></p>
-      <p><%= f.input :telefono, :label => "Apellido",  :required => true %></p>
-      <p><%= f.input :profesion, :label => "Apellido",  :required => true %></p>
-      <p><%= f.input :usuario_id, :label => "Apellido",  :required => true %></p>
-
-    <div class="form-actions">
-      <%= f.submit "guardar", :class => 'btn btn-primary' %>
-      <a href="#" class="btn" onclick="$.lazybox.close()">Cerrar</a>
+<%= simple_form_for(@referencias_personale, :html => { :multipart => true, :remote => true }) do |f| %>
+<div class="user">
+  <div class="modal-header">
+    <h4 class="modal-title"><h3>Datos Referencia Personal</h3></h4>
+  </div><br>
+  <div class="row">
+    <div class="col-md-4">
+      Nombre:
     </div>
+    <div class="col-md-6">
+      <%= f.input :nombre, :label => false,  :required => true %>
+    </div>
+    <div class="col-md-4">
+      Telefono:
+    </div>
+    <div class="col-md-6">
+      <%= f.input :telefono, :label => false,  :required => true  %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      Profesión:
+    </div>
+    <div class="col-md-6">
+      <%= f.input :profesion, :label => false,  :required => true %>
+    </div>
+    <div class="col-md-4">
+      Usuario:
+    </div>
+    <div class="col-md-6">
+      <%= f.input :usuario_id, :label => false,  :required => true  %>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <%= f.submit "Guardar", :class => 'btn btn-primary' %>
+  <a href="#" class="btn btn-default" onclick="$.lazybox.close()">Cerrar</a>
+</div>
 <% end %>

@@ -28,32 +28,6 @@ ActiveRecord::Schema.define(version: 20150819174734) do
 
   add_index "estudios_complementarios", ["usuario_id"], name: "index_estudios_complementarios_on_usuario_id", using: :btree
 
-  create_table "experiencia_laboral", force: true do |t|
-    t.string   "empresa"
-    t.string   "cargo"
-    t.string   "telefono"
-    t.date     "fecha_incio"
-    t.date     "fecha_terminacion"
-    t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "experiencia_laboral", ["usuario_id"], name: "index_experiencia_laboral_on_usuario_id", using: :btree
-
-  create_table "experiencia_laborals", force: true do |t|
-    t.string   "empresa"
-    t.string   "cargo"
-    t.string   "telefono"
-    t.date     "fecha_incio"
-    t.date     "fecha_terminacion"
-    t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "experiencia_laborals", ["usuario_id"], name: "index_experiencia_laborals_on_usuario_id", using: :btree
-
   create_table "experiencias_laborales", force: true do |t|
     t.string   "empresa"
     t.string   "cargo"
@@ -66,30 +40,6 @@ ActiveRecord::Schema.define(version: 20150819174734) do
   end
 
   add_index "experiencias_laborales", ["usuario_id"], name: "index_experiencias_laborales_on_usuario_id", using: :btree
-
-  create_table "informacion_academica", force: true do |t|
-    t.string   "tipo_de_dato"
-    t.string   "nombre"
-    t.date     "fecha_terminacion"
-    t.string   "titulo_obtenido"
-    t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "informacion_academica", ["usuario_id"], name: "index_informacion_academica_on_usuario_id", using: :btree
-
-  create_table "informacion_academicas", force: true do |t|
-    t.string   "tipo_de_dato"
-    t.string   "nombre"
-    t.date     "fecha_terminacion"
-    t.string   "titulo_obtenido"
-    t.integer  "usuario_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "informacion_academicas", ["usuario_id"], name: "index_informacion_academicas_on_usuario_id", using: :btree
 
   create_table "informaciones_academicas", force: true do |t|
     t.string   "tipo_de_dato"

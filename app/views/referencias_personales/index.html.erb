@@ -1,25 +1,20 @@
-
-<%- model_class = ReferenciasPersonale -%>
-
-   
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>usuario_id</th>
-          <th>profesion_id</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-       <%= render @referencias_personales %>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td><%= link_to image_tag('nuevo.png',),  new_referencias_personale_path,  :remote => true, :rel => "tooltip", :title => "Ingresar Sugerencias", :class => "btn btn-link " %></td>
-        </tr>
-      </tfoot>
-
-    </table>
-  </div>
-    </table>
+<%- model_class = ProfesionesUsuario -%>
+<div class="page-header">
+  <h1>Referencias Personales</h1>
+</div>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Telefono</th>
+      <th>Profesion</th>
+      <th>Usuario</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+   <%= render @referencias_personales %>
+  </tbody>
+</table>
+<%= link_to image_tag('nuevo.png',),  new_referencias_personale_path,  :remote => true, :rel => "tooltip", :title => "Ingresar Nueva Referencia Personal", :class => "btn btn-link " %>
