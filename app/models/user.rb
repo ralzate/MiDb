@@ -25,4 +25,5 @@ class User < ActiveRecord::Base
   	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 	has_many :experiencias_laborales
+	has_many :estudios_complementarios
 end

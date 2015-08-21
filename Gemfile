@@ -27,6 +27,8 @@ gem 'remotipart'
 gem 'seed_dump'
 # will_paginate is a pagination library that integrates with Ruby on Rails, Sinatra, Merb, DataMapper and Sequel.
 gem 'bootstrap-will_paginate'
+# A simple date validator for Rails. Should be compatible with all latest Rubies.
+gem 'date_validator'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

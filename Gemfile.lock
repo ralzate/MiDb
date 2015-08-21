@@ -59,6 +59,8 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     commonjs (0.2.7)
+    date_validator (0.8.1)
+      activemodel
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -168,6 +170,7 @@ DEPENDENCIES
   bootstrap-will_paginate
   cancan
   coffee-rails (~> 4.0.0)
+  date_validator
   devise
   jbuilder (~> 2.0)
   jquery-rails
