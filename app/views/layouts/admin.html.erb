@@ -46,6 +46,9 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">FES</a>
+        <% if current_user %>
+        <div class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></div>
+        <% end %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Profesiones", profesiones_path %></li>

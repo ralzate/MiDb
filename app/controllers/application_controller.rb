@@ -15,10 +15,10 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :nombre1) }
+      devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :nombre1, :nombre2, :profesion, :estado_civil) }
 
       devise_parameter_sanitizer.for(:account_update) { |u| 
-      u.permit(:password, :password_confirmation, :current_password, :nombre1) }
+      u.permit(:password, :password_confirmation, :current_password, :profesion, :estado_civil) }
   end
 
 end

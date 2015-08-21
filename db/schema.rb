@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819174734) do
+ActiveRecord::Schema.define(version: 20150821160906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20150819174734) do
     t.string   "empresa"
     t.string   "cargo"
     t.string   "telefono"
-    t.date     "fecha_incio"
+    t.date     "fecha_inicio"
     t.date     "fecha_terminacion"
     t.integer  "usuario_id"
     t.datetime "created_at"
@@ -94,6 +94,18 @@ ActiveRecord::Schema.define(version: 20150819174734) do
 
   create_table "users", force: true do |t|
     t.string   "nombre1",                default: "", null: false
+    t.string   "nombre2",                default: "", null: false
+    t.string   "apellido1",              default: "", null: false
+    t.string   "apellido2",              default: "", null: false
+    t.string   "cedula",                 default: "", null: false
+    t.string   "profesion",              default: "", null: false
+    t.string   "tarjeta_profesional",    default: "", null: false
+    t.string   "estado_civil",           default: "", null: false
+    t.string   "direccion",              default: "", null: false
+    t.date     "fecha_nacimiento"
+    t.string   "celular",                default: "", null: false
+    t.string   "telefono",               default: "", null: false
+    t.string   "perfil",                 default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -106,6 +118,10 @@ ActiveRecord::Schema.define(version: 20150819174734) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,3 +1,4 @@
+<%= javascript_include_tag "fecha" %>
 
 <%= simple_form_for(@experiencia_laboral, :html => { :multipart => true, :remote => true }) do |f| %>
 <div class="user">
@@ -35,13 +36,13 @@
       Fecha Inicio:
     </div>
     <div class="col-md-6">
-      <%= f.input :fecha_incio, :label => false,  :required => true %>
+        <%= f.input :fecha_incio, :as => :string, :label => false, :required => true,  :input_html => {  :class => "datepicker " } %>
     </div>
     <div class="col-md-4">
       Fecha Terminación:
     </div>
     <div class="col-md-6">
-      <%= f.input :fecha_terminacion, :label => false,  :required => true  %>
+      <%= f.input :fecha_terminacion, :as => :string, :label => false, :required => true,  :input_html => {  :class => "datepicker " } %>
     </div>
     <%= f.hidden_field :usuario_id, :value => current_user.id %>
   </div>

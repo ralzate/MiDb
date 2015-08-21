@@ -29,6 +29,8 @@ gem 'seed_dump'
 gem 'bootstrap-will_paginate'
 # A simple date validator for Rails. Should be compatible with all latest Rubies.
 gem 'date_validator'
+# bootstrap-datepicker-rails project integrates a datepicker with Rails 3 assets pipeline.
+gem 'bootstrap-datepicker-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -37,10 +39,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
-
+# Paperclip is intended as an easy file attachment library for Active Record.
+gem 'paperclip', '~> 4.1'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
-
+#
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
