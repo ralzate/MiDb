@@ -7,7 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :apellido1,           null: false, default: ""  
       t.string :apellido2,           null: false, default: ""  
       t.string :cedula,              null: false, default: ""
-      t.string :profesion_usuario,           null: false, default: ""
+      t.string :profesion,           null: false, default: ""
       t.string :tarjeta_profesional, null: false, default: ""
       t.string :estado_civil,        null: false, default: ""
       t.string :direccion,           null: false, default: ""
